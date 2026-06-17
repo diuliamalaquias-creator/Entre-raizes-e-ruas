@@ -1,1 +1,237 @@
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+body {
+    background-color: #faf9f6; /* Fundo Off-White */
+    color: #4a3525; /* Letras Marrons */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+    border-bottom: 2px solid #e8e7e3;
+}
+
+header h1 {
+    color: #1e4620; /* Verde Escuro */
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #705335; /* Marrom Secundário */
+}
+
+/* LAYOUT DIVIDIDO 50/50 */
+.container-principal {
+    display: flex;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.lado {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.campo {
+    background-color: #e2f0d9; /* Verde Claro */
+    border-right: 4px dashed #c5e0b4;
+}
+
+.cidade {
+    background-color: #f2f1ec; /* Off-White levemente diferenciado para a Cidade */
+}
+
+.conteudo h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.campo h2 { color: #1e4620; } /* Verde Escuro */
+.cidade h2 { color: #1e4620; } /* Verde Escuro */
+.conteudo p { color: #4a3525; } /* Letras Marrons */
+
+.ilustracao {
+    font-size: 5rem;
+    margin-top: 20px;
+}
+
+/* ANIMAÇÃO DA PLANTA */
+@keyframes crescerPlanta {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.animar-planta {
+    animation: crescerPlanta 1.5s infinite ease-in-out;
+}
+
+/* CAMINHÃO */
+.caminhao {
+    position: absolute;
+    bottom: 25%;
+    left: -100px;
+    font-size: 3.5rem;
+    z-index: 10;
+}
+
+/* BOTÃO PRINCIPAL */
+.controles {
+    text-align: center;
+    padding: 25px;
+    background-color: #ffffff;
+    box-shadow: 0 -4px 6px rgba(0,0,0,0.03);
+    border-top: 2px solid #e8e7e3;
+}
+
+#btn-iniciar {
+    background-color: #1e4620; /* Verde Escuro */
+    color: #faf9f6; /* Letras Off-White */
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(30, 70, 32, 0.3);
+    transition: all 0.2s ease;
+}
+
+#btn-iniciar:hover:not(:disabled) {
+    transform: translateY(-2px);
+    background-color: #2d6630; /* Verde um pouco mais vivo no hover */
+    box-shadow: 0 6px 20px rgba(30, 70, 32, 0.4);
+}
+
+#btn-iniciar:disabled {
+    background-color: #d1ced0;
+    color: #8c8885;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* BARRA DE PROGRESSO */
+.barra-progresso-container {
+    width: 60%;
+    height: 12px;
+    background-color: #e8e7e3;
+    margin: 20px auto 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+}
+
+.barra-progresso {
+    height: 100%;
+    width: 0%;
+    background-color: #c5e0b4; /* Barra em Verde Claro */
+}
+
+/* MODAL DA PERGUNTA */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(74, 53, 37, 0.5); /* Sombra marrom transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 100;
+}
+
+.modal.mostrar {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-conteudo {
+    background-color: #faf9f6; /* Fundo Off-White */
+    border: 3px solid #1e4620; /* Borda Verde Escuro */
+    padding: 35px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+.modal-conteudo h3 {
+    color: #1e4620; /* Verde Escuro */
+}
+
+.opcoes {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-opcao {
+    background-color: #ffffff;
+    border: 2px solid #e8e7e3;
+    color: #4a3525; /* Marrom */
+    padding: 12px;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.btn-opcao:hover:not(:disabled) {
+    background-color: #e2f0d9; /* Feedback visual com Verde Claro */
+    border-color: #1e4620;
+}
+
+/* FEEDBACK */
+.escondido { display: none; }
+
+#feedback {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #e8e7e3;
+}
+
+#texto-feedback {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.sucesso { color: #1e4620; } /* Verde Escuro para acerto */
+.erro { color: #8b0000; } /* Vermelho escuro discreto para erro, mantendo a harmonia */
+
+#btn-reiniciar {
+    background-color: #705335; /* Marrom */
+    color: #faf9f6; /* Off-white */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+#btn-reiniciar:hover {
+    background-color: #4a3525;
+}
