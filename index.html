@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo Vivo: Campo e Cidade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <header>
+        <h1>Ciclo Vivo: Campo e Cidade</h1>
+        <p>Da agricultura familiar até a sua mesa.</p>
+    </header>
+
+    <main class="container-principal">
+        
+        <section class="lado campo">
+            <div class="conteudo">
+                <h2>🌾 O Campo</h2>
+                <p>A agricultura familiar produz alimentos com cuidado e diversidade.</p>
+                <div class="ilustracao" id="campo-ilustracao">🌱</div>
+            </div>
+        </section>
+
+        <section class="lado cidade">
+            <div class="conteudo">
+                <h2>🏙️ A Cidade</h2>
+                <p>Os alimentos chegam até você através da cadeia de distribuição.</p>
+                <div class="ilustracao" id="cidade-ilustracao">🏢</div>
+            </div>
+        </section>
+
+        <div class="caminhao" id="caminhao">🚚</div>
+
+    </main>
+
+    <section class="controles">
+        <button id="btn-iniciar" onclick="iniciarCiclo()">INICIAR CICLO DO ALIMENTO</button>
+        
+        <div class="barra-progresso-container" id="barra-container">
+            <div class="barra-progresso" id="barra"></div>
+        </div>
+    </section>
+
+    <div class="modal" id="modal-pergunta">
+        <div class="modal-conteudo">
+            <h3>❓ Pergunta do Ciclo</h3>
+            <p id="texto-pergunta">Como a agricultura familiar contribui para a sua alimentação?</p>
+            
+            <div class="opcoes">
+                <button class="btn-opcao" onclick="verificarResposta('A')">A) Produz alimentos que chegam diretamente às cidades</button>
+                <button class="btn-opcao" onclick="verificarResposta('B')">B) Só produz exportação</button>
+                <button class="btn-opcao" onclick="verificarResposta('C')">C) Não tem relação com a cidade</button>
+            </div>
+
+            <div id="feedback" class="escondido">
+                <p id="texto-feedback"></p>
+                <button id="btn-reiniciar" onclick="reiniciarCiclo()">Iniciar novo ciclo 🔁</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
